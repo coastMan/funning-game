@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./score.css">
+    <script src="./artTemplate/template-web.js"></script>
+</head>
+
+<body>
+    <div id="map">
+        <p class="message">经过一系列的恶战.....</p>
+    </div>
+
+    <div class="main">
+        <div class="continue">
+            <a href="./打蜜蜂.html">继续游戏</a>
+        </div>
+        <div class="status">失败</div>
+        <div class="title">游戏结束....</div> 
+         <div class="head">
+            <p class="tj">小伙子,你没有完成通过关哦 .</p>
+        </div>
+        <div class="body">
+            <p>神射手排行榜</p>
+            <ol>
+
+            </ol>
+        </div>
+
+        <div class="foot">
+            <p class="chat"></p>
+            <span class="chat2"></span>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    var data=window.localStorage.getItem("over");
+    if(data=="胜利"){
+        setTimeout(function () {
+            document.querySelector(".message").style.display="none";
+            document.querySelector(".title").innerHTML="恭喜你,完成通关!!!"
+            document.querySelector(".status").innerHTML="成功"
+            document.querySelector(".tj").innerHTML="少年,我看你骨骼精奇,是万中无一的开飞机奇才,维护世界和平就靠你了"
+            document.querySelector(".status").style.backgroundColor="salmon";
+            document.querySelector(".main").style.backgroundColor="yellowGreen"
+            document.querySelector(".title").style.backgroundColor="red"
+            Game.planeMove();
+            
+        },3000)
+
+
+    }else{
+        render()
+    }
+
+    var Game={
+        planeMove:function () {
+            var timeId;
+            var plane=document.createElement('div');
+            plane.className="plane";
+            this.map=document.getElementById("map");
+            var girl=document.createElement('div');
+            girl.className="girl";
+            this.girl=girl;
+            this.map.appendChild(girl)
+            this.map.appendChild(plane);
+            this.plane=plane;
+            var that=this;
+            setTimeout(function () {
+                that.talkGirl()
+            },1000)
+            
+            timeId=setInterval(function () {
+                that.plane.style.top=that.plane.offsetTop+5+"px";
+                if(that.plane.style.top==540+"px"){
+                    that.createFlyer();
+                    clearInterval(timeId);
+                }
+            },30)
+        },
+        createFlyer:function(){
+            var timeId;
+            var flyer=document.createElement('div');
+            flyer.className="flyer";
+            this.map.appendChild(flyer)
+            this.flyer=flyer;
+            var that = this;
+            timeId = setInterval(function () {
+                that.flyer.style.height = that.flyer.offsetHeight + 3 + "px";
+                
+                if (that.flyer.offsetHeight >= 46) {
+                    that.flyerRun();
+                    clearInterval(timeId);
+                }
+            }, 30)
+        },
+        talkGirl:function(){
+            var talk1 = document.createElement('p');
+            talk1.className = "talk"
+            talk1.innerHTML = "Oh prince ,God bless you! ";
+            this.map.appendChild(talk1);
+            this.talk1=talk1
+        },
+
+        flyerRun:function(){
+            var that=this;
+            timeId=setInterval(function () {
+                that.flyer.style.left=that.flyer.offsetLeft+5+"px";
+                if(that.flyer.style.left==640+"px"){
+                   setTimeout(function () {
+                       that.flyerTalk()
+                   },600)
+                    clearInterval(timeId);
+                }
+            },30)
+        },
+        flyerTalk:function(){
+            var talk2 = document.createElement('p');
+            talk2.className = "talk"
+            talk2.innerHTML = "here I come! ";
+            talk2.style.left=550+"px";
+            this.talk2=talk2;
+            this.map.appendChild(talk2);
+            var that=this;
+            this.talk1.style.display="none";
+            setTimeout(function () {
+
+                that.talkGirl2()
+            },600)
+        },
+        
+        talkGirl2:function(){
+            var that=this;
+            var talk3 = document.createElement('p');
+            talk3.className = "talk"
+            talk3.innerHTML = "I'm so scared...... ";
+            this.map.appendChild(talk3);
+            this.talk3=talk3
+
+            setTimeout(function () {
+                that.talk2.style.display="none";
+                that.flyerTalk2()
+            },700)
+        },
+
+
+        flyerTalk2:function(){
+            var talk2 = document.createElement('p');
+            talk2.className = "talk"
+            talk2.innerHTML = "Don't be scared Lets go home. ";
+            talk2.style.left=550+"px";
+            this.map.appendChild(talk2);
+            this.talk2=talk2;
+            var that=this;
+            setTimeout(function () {
+
+                that.lastStory()
+            },1800)
+        },
+
+        lastStory:function(){
+            var that=this;
+            this.map.removeChild(this.plane)
+            this.map.removeChild(this.flyer)
+            this.map.removeChild(this.girl)
+            this.map.removeChild(this.talk2)
+            this.map.removeChild(this.talk3)
+            document.querySelector(".message").innerHTML="从此以后,飞行员与公主过上了幸福的生活...";
+            document.querySelector(".message").style.display="block"
+            document.querySelector(".message").style.left=245+"px";
+            var love=document.createElement('div');
+            love.className="love";
+            this.map.appendChild(love)
+            setTimeout(function () {
+               
+                render()
+            },4000)
+        }
+        
+
+    }
+
+    function render(){
+        
+                document.querySelector(".main").style.display="block";
+                document.querySelector("#map").style.display="none";
+                var scoreStr=window.localStorage.getItem("score")
+                var scoreArr=JSON.parse(scoreStr);
+                //获取当前的分数
+                var scoreNum=scoreArr[scoreArr.length-1];
+                //排序
+                scoreArr.sort(function (a,b) {
+                    return b-a
+                })
+                //去重
+                var scoreArrNew=[scoreArr[0]];
+                for(var i=0;i<scoreArr.length;i++){
+                    var flag=true
+                    for(var j=0;j<scoreArrNew.length;j++){
+                        if(scoreArr[i]==scoreArrNew[j]){
+                            flag=false;
+                            break;
+                        }
+                    }
+                    if(flag==true){
+                        scoreArrNew[scoreArrNew.length]=scoreArr[i]
+                    }
+                }
+                scoreArr=scoreArrNew
+                //遍历去重后的数组,动态创建li添加到ol上,渲染排行榜.
+                for(var i=0;i<scoreArr.length;i++){
+                    var list=document.createElement('li')
+                    
+                    list.innerHTML=scoreArr[i]
+                    document.querySelector("ol").appendChild(list)
+                    //把当前分数的li设置为高亮状态
+                    if(list.innerHTML==scoreNum){
+                        list.style.backgroundColor="skyblue";
+                    }
+                }
+
+                document.querySelector(".chat").innerHTML="你的最终分数为"+scoreNum;
+                if(scoreNum<200){
+                    document.querySelector(".chat2").innerHTML="彩笔,我爷爷飞机打的都比你好,回家养猪去吧!!!"
+                }else if(scoreNum>=200 && scoreNum<=600){
+                    document.querySelector(".chat2").innerHTML="还可以辣,小伙子,王牌飞行员在向你招手哟"
+                }else{
+                    document.querySelector(".chat2").innerHTML="666,太厉害辣,我要给你生猴子!!!"
+                }
+        }    
+</script>
