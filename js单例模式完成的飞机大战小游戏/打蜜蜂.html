@@ -15,7 +15,7 @@
         <p>此版本为BETA版,敬请期待正式版</p>
         <p class="bind">操作说明: A S Space: 发射子弹键位 上下左右:移动键位.内含彩蛋</p>
         <div id="startGame">开始游戏</div>
-       
+        <div class="author">本游戏由coastman出品</div>
     </div>
 </body>
 
@@ -45,7 +45,6 @@
         //02-1 蜜蜂的数据
         mFObj: {
             //02-2三种蜜蜂 class类名分别为 mf1 mf2 mf3 ,blood代表血量,score代表打死的分数.
-
             mf1: {
                 style: "mf1",
                 blood: 1,
@@ -99,49 +98,51 @@
                 speedY: 10,
                 times: 2000
             },
-            {
-                mfData: [
-                    'mf3', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf2', 'mf2',
-                    'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2',
-                    'mf3', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf2', 'mf2',
-                    'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1',
-                    'mf3', 'mf1', 'mf3', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1',
-                    'mf1', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf1', 'mf1', 'mf1',
-                ],
-                rowNum: 10,
-                speedX: 10,
-                speedY: 10,
-                times: 2000
-            },
-            {
-                mfData: [
-                    'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1',
-                    'mf1', 'mf1', 'mf1', 'mf1', 'mf2', 'mf2', 'mf1', 'mf1', 'mf1', 'mf1',
-                    'mf1', 'mf1', 'mf1', 'mf2', 'mf1', 'mf1', 'mf2', 'mf1', 'mf1', 'mf1',
-                    'mf1', 'mf1', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf1', 'mf1',
-                    'mf1', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf1',
-                    'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2',
-                ],
-                rowNum: 10,
-                speedX: 10,
-                speedY: 10,
-                times: 2000
-            },
-
-            {
-                mfData: [
-                    'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1',
-                    'mf1', 'mf1', 'mf1', 'mf1', 'mf2', 'mf2', 'mf1', 'mf1', 'mf1', 'mf1',
-                    'mf1', 'mf1', 'mf1', 'mf2', 'mf1', 'mf1', 'mf2', 'mf1', 'mf1', 'mf1',
-                    'mf1', 'mf1', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf1', 'mf1',
-                    'mf1', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf1',
-                    'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2',
-                ],
-                rowNum: 10,
-                speedX: 10,
-                speedY: 10,
-                times: 2000
-            },
+            // 第三关
+            // {
+            //     mfData: [
+            //         'mf3', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf2', 'mf2',
+            //         'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2', 'mf2',
+            //         'mf3', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf2', 'mf2',
+            //         'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1',
+            //         'mf3', 'mf1', 'mf3', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1',
+            //         'mf1', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf1', 'mf1', 'mf1',
+            //     ],
+            //     rowNum: 10,
+            //     speedX: 10,
+            //     speedY: 10,
+            //     times: 2000
+            // },
+            // // 第四关
+            // {
+            //     mfData: [
+            //         'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1',
+            //         'mf1', 'mf1', 'mf1', 'mf1', 'mf2', 'mf2', 'mf1', 'mf1', 'mf1', 'mf1',
+            //         'mf1', 'mf1', 'mf1', 'mf2', 'mf1', 'mf1', 'mf2', 'mf1', 'mf1', 'mf1',
+            //         'mf1', 'mf1', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf1', 'mf1',
+            //         'mf1', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf1',
+            //         'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2',
+            //     ],
+            //     rowNum: 10,
+            //     speedX: 10,
+            //     speedY: 10,
+            //     times: 2000
+            // },
+            // // 第五关
+            // {
+            //     mfData: [
+            //         'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1', 'mf1',
+            //         'mf1', 'mf1', 'mf1', 'mf1', 'mf2', 'mf2', 'mf1', 'mf1', 'mf1', 'mf1',
+            //         'mf1', 'mf1', 'mf1', 'mf2', 'mf1', 'mf1', 'mf2', 'mf1', 'mf1', 'mf1',
+            //         'mf1', 'mf1', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf1', 'mf1',
+            //         'mf1', 'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2', 'mf1',
+            //         'mf2', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf3', 'mf2',
+            //     ],
+            //     rowNum: 10,
+            //     speedX: 10,
+            //     speedY: 10,
+            //     times: 2000
+            // },
         ],
         //04 飞机数据
         airPlane: {
@@ -150,7 +151,6 @@
         },
         //05 游戏开始的方法
         start: function (id) {
-
             //获取地图 这里没有使用var声明 是为了后面的方法里可以直接使用它,其实就是变成全局变量.
             this.map = document.getElementById(id)
             //调用创建积分的方法 也就是往Game对象添加各种方法,因此this指向Game
@@ -159,7 +159,6 @@
             this.createMf(num)
             //调用创建飞机的方法
             this.createFJ()
-            // console.log(this);
             this.createBW()
         },
         // 06 创建积分的方法
@@ -170,14 +169,10 @@
             this.map.appendChild(score);
             //这里的this同上 为了后面的方法可以直接使用
             this.scoreNum = score.getElementsByTagName("span")[0];
-            //   console.log(this.scoreNum.innerHTML);
-
-
         },
 
         //07 创建飞机的方法.
         createFJ: function () {
-
             var fJ = document.createElement('div');
             fJ.className = "plane" //this.airPlane.style;
             fJ.style.left = (this.map.offsetWidth - fJ.offsetWidth) / 2 + "px";
@@ -186,7 +181,6 @@
             this.fJ = fJ
             //调用操作飞机移动的方法
             this.bindFJ();
-
         },
         //08 创建蜜蜂群的方法
         createMf: function (num) { //num是为了跳关卡的标记变量
@@ -213,17 +207,14 @@
                 mfLi.speed = this.mFObj[gkObj.mfData[i]].speed
                 mfLi.score = this.mFObj[gkObj.mfData[i]].score
                 mfUl.appendChild(mfLi)
-                // console.log(mfLi.speed);
             }
             //08-3在Game对象里添加蜜蜂群ul. 其实就是把它变成全局变量
             this.mfUl = mfUl
             this.mfLi = mfUl.getElementsByTagName('li')
-            // console.log(this.mfLi);
             //08-4 循环每一只蜜蜂li,用数组存放每个li的位置
             for (var i = 0; i < this.mfLi.length; i++) {
                 arr.push([this.mfLi[i].offsetLeft, this.mfLi[i].offsetTop]);
             }
-            // console.log(arr);
             for (var i = 0; i < this.mfLi.length; i++) {
                 //08-5 把每一只蜜蜂改成绝对定位 防止蜜蜂飞出或者被打死 周围的蜜蜂造成补位现象 
                 this.mfLi[i].style.position = "absolute";
@@ -263,7 +254,6 @@
                         if (that.fJ.style.left == 0 + "px" && that.fJ.style.top == 0 + 'px' && flag ==
                             true) {
                             setTimeout(run, 14000)
-
                             // clearInterval(timeIds)
                         } else {
                             //09-4 调用飞机移动的函数
@@ -275,15 +265,11 @@
                             clearInterval(timeIds)
                             bindNum++
                         }
-
                     }, timing)
-
                 }
                 //09-5 确认方向
                 if (e.keyCode == 37) {
                     current = "left";
-                    // console.log(current);
-
                 } else if (e.keyCode == 39) {
                     current = "right";
                 } else if (e.keyCode == 38) {
@@ -314,7 +300,6 @@
                 if (e.keyCode == 32) {
                     that.createBullets()
                 }
-
             }
 
             //飞机移动的函数 调用一次 移动10px;
@@ -331,7 +316,6 @@
                     if (that.fJ.style.left == 750 + 'px') {
                         return false;
                     } else {
-                        // console.log(that.fJ.style.left);
                         that.fJ.style.left = that.fJ.offsetLeft + 10 + "px"
                     }
                 }
@@ -339,16 +323,13 @@
                     if (that.fJ.style.top == 0 + 'px') {
                         return false;
                     } else {
-                        // console.log(that.fJ.style.left);
                         that.fJ.style.top = that.fJ.offsetTop - 10 + "px"
                     }
                 }
                 if (current == "bottom") {
                     if (that.fJ.offsetTop >= that.map.offsetHeight - that.fJ.offsetHeight) {
-                        // alert(1)
                         return false;
                     } else {
-                        // console.log(that.fJ.style.left);
                         that.fJ.style.top = that.fJ.offsetTop + 10 + "px"
                     }
                 }
@@ -370,16 +351,13 @@
                     }
                     //    that.map.style.display="none";
                 }
-            }
-
-            
+            }          
         },
         //10-1创建子弹的方法
         createBullet: function () {
             var bullet = document.createElement('div');
             bullet.className = "bullet"
             this.map.appendChild(bullet);
-            // console.log(bullet.offsetWidth);
             //10-2 飞机距离Map的宽度 + 飞机宽度/2 - 子弹的宽度 就是创建子弹x轴的位置
             bullet.style.left = this.fJ.offsetLeft + this.fJ.offsetWidth / 2 - bullet.offsetWidth / 2 + "px";
             //10-3 飞机在y轴的位置
@@ -406,10 +384,7 @@
                 var bullet = document.createElement('div');
                 bullet.className = "bullets"
                 this.map.appendChild(bullet);
-                // console.log(bullet.offsetWidth / 2);
-
-                bullet.style.left = this.fJ.offsetLeft + this.fJ.offsetWidth / 2 - bullet.offsetWidth / 2 +
-                    "px";
+                bullet.style.left = this.fJ.offsetLeft + this.fJ.offsetWidth / 2 - bullet.offsetWidth / 2 + "px";
                 bullet.style.top = this.fJ.offsetTop - 10 + "px";
                 this.bullet = bullet;
                 var j = i;
@@ -425,10 +400,7 @@
                 if (bullet.offsetTop < -10) {
                     clearInterval(bullet.timeId)
                     that.map.removeChild(bullet)
-                    //  console.log(that);
                 } else {
-                    // console.log(1);
-
                     //12-1 子弹的x轴位置 也就是left值 
                     bullet.style.left = bullet.offsetLeft + 2 * j + "px"
                     //12-2 子弹Y轴的位置
@@ -439,7 +411,6 @@
                 for (var i = 0; i < that.mfLi.length; i++) {
                     //12-4 pZ是一个判断是否相撞的函数,判断子弹和单只蜜蜂相撞的函数;
                     if (that.pZ(bullet, that.mfLi[i])) {
-                        // console.log(1);
                         //12-5 如果相撞 清除子弹运动的计时器 顺便自杀
                         clearInterval(bullet.timeId)
                         that.map.removeChild(bullet)
@@ -461,7 +432,6 @@
                 }
                 //12-8 如果蜜蜂li数组的长度为0, 进入下一关.
                 if (that.mfLi.length == 0) {
-                    //  console.log(1);
                     //12-9 如果蜜蜂标记关卡数num的值等于实际关卡的数量,则通关.  
                     if (num == that.gK.length) {
                         //12-10 地图上剩余的子弹自杀
@@ -483,9 +453,7 @@
             // 13-1 声明一个蜜蜂群可以移动最大距离 最小距离的变量max min.
             var min = 0;
             var max = this.map.offsetWidth - this.mfUl.offsetWidth;
-            // console.log(that.fJ)
             this.mfUl.timeId = setInterval(function () {
-                // console.log(that.fJ.style.left)
                 //当飞机进入地图左上角进入彩蛋功能,主游戏界面用计时器模拟暂停效果.暂停蜜蜂群
                 if (that.fJ.style.left == 0 + "px" && that.fJ.style.top == 0 + "px" && flag == true) {
                     setTimeout(function () {
@@ -518,7 +486,6 @@
                                     "px";
                                 pD = 0;
                             }, 5000)
-
                         }
                     }, 14000)
                 } else {
@@ -543,35 +510,26 @@
                             that.mfUl.style.left = that.mfUl.offsetLeft + gkObj.speedX + "px";
                             pD = 0;
                         }, 5000)
-
                     }
                 }
-
             }, 200)
 
             setInterval(function () {
-
-                // console.log(gkObj.times);
                 //给一个计时器调用单只蜜蜂移动的方法
                 that.oneMove();
             }, gkObj.times)
         },
         //14 创建单只蜜蜂移动的方法
         oneMove: function () {
-            // console.log(this.mfLi);
             //14-1 随机生成单只蜜蜂
             var oneMF = this.mfLi[Math.floor(Math.random() * this.mfLi.length)];
             var that = this;
-            // console.log(that.mfLi)
-
             that.oneMF = oneMF;
             //设置计时器不断让单只蜜蜂移动
             that.oneMF.timeId = setInterval(function () {
-                // console.log(that.fJ.style.left)
                 // if (that.oneMF.offsetLeft == undefined) {
                 //     return false;
                 // }
-
                 //当飞机进入地图左上角进入彩蛋功能,主游戏界面用计时器模拟暂停效果.暂停飞行的单只蜜蜂
                 if (that.fJ.style.left == 0 + "px" && that.fJ.style.top == 0 + 'px' && flag == true) {
                     clearInterval(that.oneMF.timeId)
@@ -590,7 +548,6 @@
                         var oneMFSpeedX = oneMF.speed * a / c;
                         //14-6 单只蜜蜂的垂直速度      c/speed=b/oneMFSpeedY  
                         var oneMFSpeedY = oneMF.speed * b / c;
-                        // console.log(oneMF);
                         //14-7 求出单只蜜蜂的水平,垂直速度,是为了让蜜蜂一直像飞机运动.
                         oneMF.style.left = oneMF.offsetLeft + oneMFSpeedX + "px";
                         oneMF.style.top = oneMF.offsetTop + oneMFSpeedY + "px";
@@ -604,11 +561,8 @@
                     var c = Math.sqrt(a * a + b * b);
                     var oneMFSpeedX = oneMF.speed * a / c;
                     var oneMFSpeedY = oneMF.speed * b / c;
-                    // console.log(oneMF);
-
                     oneMF.style.left = oneMF.offsetLeft + oneMFSpeedX + "px";
                     oneMF.style.top = oneMF.offsetTop + oneMFSpeedY + "px";
-
                 }
                 //14-7 循环所有的蜜蜂li
                 for (var i = 0; i < that.mfLi.length - 1; i++) {
@@ -616,9 +570,7 @@
                     if (that.pZ(that.fJ, that.mfLi[i])) {
                         //14-9 如果飞机接了保护圈宝物  蜜蜂自杀 保护圈消失
                         if (that.fJ.className == "plane3") {
-                            // console.log( that.mfUl);
                             that.mfUl.removeChild(that.mfLi[i])
-                            // alert(1)
                             that.fJ.className = "plane";
                             //14-10 如果飞机接了变大宝物  蜜蜂自杀 (变大会有短暂的无敌效果)
                         } else if (that.fJ.className == "plane2") {
@@ -637,7 +589,6 @@
             var R1 = obj1.offsetLeft + obj1.offsetWidth;
             var T1 = obj1.offsetTop;
             var B1 = obj1.offsetTop + obj1.offsetHeight;
-
             //因为小蜜蜂li是装在ul里面的，所以计算小蜜蜂的top、left值是相对于ul的，所以要加上ul的top、left值才算小蜜蜂的值
             var L2 = obj2.offsetLeft + obj2.parentNode.offsetLeft;
             var R2 = obj2.offsetLeft + obj2.offsetWidth + obj2.parentNode.offsetLeft;
@@ -649,13 +600,10 @@
             } else {
                 return true;
             }
-
         },
 
         //16 奖励方法
-        jL: function () {
-
-        },
+        jL: function () {},
         //17 创建宝物的方法
         createBW: function () {
             var that = this;
@@ -709,7 +657,6 @@
                         pD = 1                     //标记是否暂停蜜蜂群的功能变量
                     } else if (that.BWnum == 3) {
                         that.fJ.className = "plane3" //保护圈功能
-
                     } else if (that.BWnum == 4) {
                         //调用创建小弟的方法
                         that.createBro()            //小弟
@@ -747,14 +694,12 @@
             var speed = 6; //给小弟设置速度变量
             var that = this;
             that.broTimeId = setInterval(function () {
-                //
                 if (that.bro.style.left >= 700 + "px") {
                     speed *= -1;//当小弟的位置在地图的最右边,速度变为负,做反向运动.
                 } else if (that.bro.style.left <= 0 + "px") {
                     speed *= -1;
                 }
                 that.bro.style.left = that.bro.offsetLeft + speed + "px"
-
             }, 30)
         },
 
@@ -766,7 +711,6 @@
                 var bullet = document.createElement('div');
                 bullet.className = "bullet"
                 that.map.appendChild(bullet);
-                // console.log(bullet.offsetWidth);
                 //21-2 飞机距离Map的宽度 + 飞机宽度/2 - 子弹的宽度 就是创建子弹x轴的位置
                 bullet.style.left = that.bro.offsetLeft + that.bro.offsetWidth / 2 - bullet.offsetWidth /
                     2 + "px";
@@ -784,7 +728,6 @@
             var R1 = obj1.offsetLeft + obj1.offsetWidth;
             var T1 = obj1.offsetTop;
             var B1 = obj1.offsetTop + obj1.offsetHeight;
-
 
             var L2 = obj2.offsetLeft;
             var R2 = obj2.offsetLeft + obj2.offsetWidth;
@@ -823,11 +766,8 @@
             var that = this;
             
             oneMFBullet.timeId = setInterval(function () {
-                // console.log(that.map.offsetHeight);
-                // console.log(that.fJ.style.left);
                 // 24-1 当飞机进入地图左上角进入彩蛋功能,主游戏界面用计时器模拟暂停效果.暂停蜜蜂发射的子弹
                 if (that.fJ.style.left == 0 + "px" && that.fJ.style.top == 0 + 'px') {
-
                     setTimeout(function () {
                         if (oneMFBullet.offsetTop >= 600) {
                             clearInterval(oneMFBullet.timeId);
@@ -838,7 +778,6 @@
                     }, 14000)
 
                 } else {
-
                     if (oneMFBullet.offsetTop >= 600) {
                         clearInterval(oneMFBullet.timeId);
                         that.map.removeChild(oneMFBullet)
@@ -851,9 +790,7 @@
                 if (that.pZb(that.fJ, oneMFBullet)) {
                     //24-3 飞机有保护圈时 ,子弹自杀,飞机变为初始的样子.
                     if (that.fJ.className == "plane3") {
-                        // console.log( that.mfUl);
                         that.map.removeChild(oneMFBullet)
-                        // alert(1)
                         that.fJ.className = "plane";
                         //24-4 飞机时变大状态时,子弹自杀
                     } else if (that.fJ.className == "plane2") {
@@ -863,9 +800,7 @@
                         that.topTen();
                     }
                 }
-
             }, 30)
-
         },
         //25 创建彩蛋功能
         createEgg: function () {
@@ -902,7 +837,6 @@
 
         //26 创建彩蛋地图里面的飞机
         createEggFJ: function () {
-
             var eggfJ = document.createElement('div');
             this.eggfJ = eggfJ;
             eggfJ.className = "plane4" //this.airPlane.style;
@@ -915,7 +849,6 @@
             box2.blood = 5;
             this.box2 = box2;
             this.eggMap.appendChild(box2)
-
             this.eggfJ = eggfJ
             var that = this
             //调用操作彩蛋地图飞机移动的方法
@@ -935,12 +868,8 @@
                 coin.innerHTML = "$"
                 coin.score = 50;
                 box.appendChild(coin)
-
             }
             this.coin = box.getElementsByTagName('div');
-
-            // console.log(this.coin);
-            // console.log(this.coin[3].offsetLeft);
             for (var i = 0; i < this.coin.length; i++) {
                 console.log(this.coin[2].offsetLeft);
                 arr.push([this.coin[i].offsetLeft, this.coin[i].offsetTop]);
@@ -966,7 +895,6 @@
                 leftBox.appendChild(silverCoin);
             }
             this.silverCoin = leftBox.getElementsByTagName('div');
-
             for (var i = 0; i < this.silverCoin.length; i++) {
                 console.log(this.silverCoin[2].offsetLeft);
                 arr.push([this.silverCoin[i].offsetLeft, this.silverCoin[i].offsetTop]);
@@ -976,11 +904,9 @@
                 this.silverCoin[i].style.left = arr[i][0] + "px";
                 this.silverCoin[i].style.top = arr[i][1] + "px";
             }
-
         },
         //29 创建银币2
         createSilverMoney2: function () {
-
             var arr = []
             var rightBox = document.createElement('div');
             rightBox.className = "rightBox";
@@ -994,7 +920,6 @@
                 silverCoin2.score = 20;
             }
             this.silverCoin2 = rightBox.getElementsByTagName('div');
-
             for (var i = 0; i < this.silverCoin2.length; i++) {
                 console.log(this.silverCoin2[2].offsetLeft);
                 arr.push([this.silverCoin2[i].offsetLeft, this.silverCoin2[i].offsetTop]);
@@ -1004,7 +929,6 @@
                 this.silverCoin2[i].style.left = arr[i][0] + "px";
                 this.silverCoin2[i].style.top = arr[i][1] + "px";
             }
-
         },
         //30 创建盒子(砖块)
         createEggBox: function () {
@@ -1017,15 +941,11 @@
                 var eggbox = document.createElement("div");
                 containLeft.appendChild(eggbox);
                 eggbox.className = "box3";
-
             }
-
             this.eggbox = containLeft.getElementsByTagName('div');
-
             for (var i = 0; i < this.eggbox.length; i++) {
                 eggboxArr.push([this.eggbox[i].offsetLeft, this.eggbox[i].offsetTop]);
             }
-
             for (var i = 0; i < this.eggbox.length; i++) {
                 // 把每一个砖块改成绝对定位 防止砖块被打碎 周围的砖块造成补位现象 
                 this.eggbox[i].style.position = "absolute";
@@ -1035,7 +955,6 @@
                 //     this.eggbox[i].style.display="none";
                 // }
             }
-
         },
 
         //操纵彩蛋飞机的方法
@@ -1053,8 +972,6 @@
                 }
                 if (e.keyCode == 37) {
                     current = "left";
-                    // console.log(current);
-
                 } else if (e.keyCode == 39) {
                     current = "right";
                 } else if (e.keyCode == 38) {
@@ -1062,21 +979,16 @@
                 } else if (e.keyCode == 40) {
                     current = "bottom"
                 }
-
-
             }
             document.onkeyup = function (e) {
                 if (e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 39 || e.keyCode == 40) {
                     clearInterval(timeId)
                     timeId = null;
                     current = null;
-
                 }
-
                 if (e.keyCode == 65) {
                     That.createEggBullet()
                 }
-
             }
 
             function runEggFj() {
@@ -1086,16 +998,13 @@
                             return false;
                         }
                     }
-
                     if (That.eggfJ.style.left == 0 + "px") {
                         return false;
                     } else {
-
                         That.eggfJ.style.left = That.eggfJ.offsetLeft - 10 + "px";
                     }
                 }
                 if (current == "right") {
-
                     for (var i = 0; i < That.eggbox.length; i++) {
                         if (That.pZ(That.eggfJ, That.eggbox[i])) {
                             return false;
@@ -1104,12 +1013,10 @@
                     if (That.eggfJ.style.left == 750 + 'px') {
                         return false;
                     } else {
-                        // console.log(that.fJ.style.left);
                         That.eggfJ.style.left = That.eggfJ.offsetLeft + 10 + "px"
                     }
                 }
                 if (current == "top") {
-
                     for (var i = 0; i < That.eggbox.length; i++) {
                         if (That.pZ(That.eggfJ, That.eggbox[i])) {
                             return false;
@@ -1118,7 +1025,6 @@
                     if (That.eggfJ.style.top == 0 + 'px') {
                         return false;
                     } else {
-
                         That.eggfJ.style.top = That.eggfJ.offsetTop - 10 + "px"
                     }
                 }
@@ -1127,7 +1033,6 @@
                         // alert(1)
                         return false;
                     } else {
-
                         That.eggfJ.style.top = That.eggfJ.offsetTop + 10 + "px"
                     }
                 }
@@ -1135,7 +1040,6 @@
                 for (var i = 0; i < That.coin.length; i++) {
                         //飞机与金币是否碰撞的检测
                     if (That.pZ(That.eggfJ, That.coin[i])) {
-                        
                         That.box.removeChild(That.coin[i])
                         That.scoreNum.innerHTML = parseInt(That.scoreNum.innerHTML) + That.coin[i].score;
                     }
@@ -1158,8 +1062,6 @@
                         That.scoreNum.innerHTML = parseInt(That.scoreNum.innerHTML) + That.silverCoin2[i].score
                     }
                 }
-
-
             }
         },
         //创建彩蛋中子弹的方法
@@ -1175,7 +1077,6 @@
         },
         //子弹运动
         runEggBullet: function (bullet) {
-
             var that = this;
             bullet.timeId = setInterval(function () {
                 //子弹超出地图自杀 清除计时器
@@ -1183,13 +1084,10 @@
                     clearInterval(bullet.timeId)
                     that.eggMap.removeChild(bullet)
                 } else {
-                   
-                    
                     bullet.style.top = bullet.offsetTop - 10 + "px"
                 }
                     //让隐藏的盒子和和子弹碰撞检测
                 if (that.pZb(bullet, that.box2)) {
-
                     //如果相撞 清除子弹运动的计时器 顺便自杀
                     clearInterval(bullet.timeId)
                     that.eggMap.removeChild(bullet)
@@ -1200,11 +1098,9 @@
                             //清除所有砖块
                             that.containLeft.style.display = "none";
                             that.mario()
-
                         } else {
                             //调用隐藏盒子的抖动方法
                             that.shake();
-
                         }
                 }
 
@@ -1212,7 +1108,6 @@
                     //让子弹和盒子做碰撞检测
                     if (that.pZ(bullet, that.eggbox[i])) {
                         clearInterval(bullet.timeId);
-                        
                         that.eggMap.removeChild(bullet);
                         // that.positionArr[i].parentNode.removeChild(that.positionArr[i]);
                         that.eggbox[i].style.display = "none";
@@ -1223,7 +1118,6 @@
         shake: function () {
             var that = this;
             if (that.box2.blood <= 0) {
-                // alert(1)
                 return false;
             }
             that.box2.style.top = 335 + "px";
@@ -1270,7 +1164,6 @@
             scoreArr.push(allScore);
             var scoreStr = JSON.stringify(scoreArr);
             var render = window.localStorage.getItem("score")
-
             if (render) {
                 scoreArr = JSON.parse(render)
                 scoreArr.push(allScore)
@@ -1278,8 +1171,6 @@
             }
             //本地存储得分信息
             window.localStorage.setItem("score", scoreStr);
-
-
             window.location.href = "./score.html"
         },
         //通关后调用的方法
@@ -1291,7 +1182,6 @@
             scoreArr.push(allScore);
             var scoreStr = JSON.stringify(scoreArr);
             var render = window.localStorage.getItem("score")
-
             if (render) {
                 scoreArr = JSON.parse(render)
                 scoreArr.push(allScore)
@@ -1299,11 +1189,8 @@
             }
             //本地存储得分信息
             window.localStorage.setItem("score", scoreStr);
-
             //跳转页面
             window.location.href = "./score.html"
         }
-
-
     }
 </script>

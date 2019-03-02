@@ -57,8 +57,8 @@ p {
     font-size: 16px;
     color: #fff;
     position: absolute;
-    top: 565px;
-    left: 120px;
+    top: 210px;
+    left: 316px
 }
 
 .plane {
@@ -359,5 +359,4 @@ p {
     position: absolute;
     left: 80px;
     top:300px;
-     
 }
