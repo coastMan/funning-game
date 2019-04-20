@@ -1,0 +1,241 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="text/javascript" src="./lib/vue.js"></script>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="todoapp">
+      <header class="header">
+        <h1>ToDoList</h1>
+        <!-- 添加数据 -->
+        <input
+          autofocus="autofocus"
+          autocomplete="off"
+          placeholder="想干啥?"
+          class="new-todo"
+          v-model="toDo"
+          @keyup.enter="add"
+        />
+      </header>
+
+      <section class="main">
+        <input 
+          type="checkbox" 
+          class="toggle-all" 
+          @change="checkAllToDo" 
+          v-model="checkAll" 
+        />
+        <ul class="todo-list" v-cloak>
+          <!-- 页面中todolist列表的保存的数据 -->
+          <li
+            class="todo "
+            v-for="(item, index) in visiableList"
+            :class="{completed:item.complete,editing:item.isEdit}"
+          >
+            <div class="view">
+              <input
+                type="checkbox"
+                class="toggle"
+                v-model="item.complete"
+                @change="checkAllIsCheck(index)"
+              />
+              <!-- 进入编辑状态 -->
+              <label @click="editToDo(index)">{{ item.name }}</label>
+              <button class="destroy" @click="remove(index)"></button>
+            </div>
+            <input
+              v-focus
+              type="text"
+              class="edit"
+              v-if="item.isEdit"
+              v-model="cacheEdit"
+              @keyup.enter="saveData(index)"
+              @keyup.esc="cancelEdit(index)"
+              @blur="cancelEdit(index)"
+            />
+          </li>
+        </ul>
+      </section>
+      <footer class="footer">
+        <span class="todo-count" v-if="noDoneNum!=0">
+          <strong>{{ noDoneNum }}</strong> 项 剩余
+        </span>
+        <ul class="filters">
+          <li>
+            <!-- 判断是否高亮,及显示的数据 -->
+            <a 
+              href="#/all" 
+              :class="{selected:visibility=='全部'}" 
+              @click="visible('全部')">全部</a>
+          </li>
+          <li>
+            <a 
+              href="#/active" 
+              :class="{selected:visibility=='未完成'}" 
+              @click="visible('未完成')">未完成</a>
+          </li>
+          <li>
+            <a 
+              href="#/completed" 
+              :class="{selected:visibility=='完成'}" 
+              @click="visible('完成')">完成</a>
+          </li>
+        </ul>
+        <button class="clear-completed" @click="clearAll">
+          清空列表
+        </button>
+      </footer>
+    </section>
+    <footer class="info">
+      <p>双击进入编辑状态</p>
+      <p>
+        鸣谢:
+        <a href="http://evanyou.me">Evan You</a>
+      </p>
+      <p>
+        参考于
+        <a href="http://todomvc.com">TodoMVC</a>
+      </p>
+    </footer>
+  </body>
+</html>
+<script src="./lib/vue.js"></script>
+<script>
+  //获取本地存储数据
+  let todolist = JSON.parse(window.localStorage.getItem("thingsList"));
+  if (!todolist || todolist.length == 0) {
+    todolist = [
+      {
+        name: "起床",
+        complete: false,
+        isEdit: false
+      },
+      {
+        name: "刷牙",
+        complete: true,
+        isEdit: false
+      },
+      {
+        name: "穿衣服",
+        complete: false,
+        isEdit: false
+      }
+    ];
+  }
+
+  // 注册一个全局自定义指令 `v-focus`,单击一下直接让隐藏的input进入焦点
+  Vue.directive("focus", {
+    // 当被绑定的元素插入到 DOM 中时……
+    inserted: function(el) {
+      // 聚焦元素
+      el.focus();
+    }
+  });
+
+  let app = new Vue({
+    el: ".todoapp",
+    data: {
+      toDo: "",
+      cacheEdit: "",
+      visibility: "全部",
+      checkAll: false,
+      todolist
+    },
+    methods: {
+      // 回车键新增数据
+      add() {
+        if (this.toDo.trim() != "") {
+          this.todolist.push({
+            name: this.toDo,
+            complete: false
+          });
+          this.toDo = "";
+        }
+      },
+      //点击按钮删除数据
+      remove(index) {
+        this.todolist.splice(index, 1);
+      },
+      //单击编辑数据
+      editToDo(index) {
+        for (let i = 0; i < this.todolist.length; i++) {
+          this.todolist[i].isEdit = false;
+        }
+        this.todolist[index].isEdit = true;
+        this.cacheEdit = this.todolist[index].name;
+      },
+      //回车键保存编辑后的数据
+      saveData(index) {
+        this.todolist[index].name = this.cacheEdit;
+        this.todolist[index].isEdit = false;
+      },
+      //ESC键或失去焦点退出编辑状态,还原原来的数据
+      cancelEdit(index) {
+        this.todolist[index].isEdit = false;
+      },
+      //点击清空列表,清空所有数据
+      clearAll() {
+        this.todolist = [];
+      },
+      //点击高亮
+      visible(data) {
+        this.visibility = data;
+      },
+      // 全选,反选
+      checkAllToDo() {
+        return this.todolist.filter((v, i) => {
+          v.complete = this.checkAll;
+        });
+      },
+      //检查是否全选
+      checkAllIsCheck(index) {
+        let totalCount = this.todolist.length;
+        let checkCount = this.todolist.filter((v, i) => {
+          if (v.complete) return v;
+        }).length;
+        this.checkAll = totalCount == checkCount;
+      }
+    },
+    computed: {
+      //使用计算属性 计算未办的事项 返回个数即可
+      noDoneNum() {
+        return this.todolist.filter((v, i) => {
+          if (v.complete == false) return v;
+        }).length;
+      },
+      //显示筛选的值,计算三种状态并返回
+      visiableList() {
+        return this.todolist.filter((v, i) => {
+          switch (this.visibility) {
+            case "全部":
+              return v;
+              break;
+            case "未完成":
+              if (v.complete == false) return v;
+              break;
+            case "完成":
+              if (v.complete == true) return v;
+              break;
+          }
+        });
+      }
+    }
+  });
+  //关闭浏览器,保存当前数据
+  window.onbeforeunload = function() {
+    window.localStorage.setItem("thingsList", JSON.stringify(todolist));
+  };
+</script>
